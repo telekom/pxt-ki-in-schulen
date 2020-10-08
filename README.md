@@ -1,5 +1,5 @@
 <h1 align="center">
-    telekom pxt-ki-in-schulen$
+    telekom pxt-ki-in-schulen
 </h1>
 
 <p align="center">
