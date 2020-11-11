@@ -1,0 +1,1 @@
+copy built\binary.hex g:

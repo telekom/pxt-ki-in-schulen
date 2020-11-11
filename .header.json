@@ -1,0 +1,17 @@
+{
+    "name": "pxt-neural-network-json",
+    "meta": {},
+    "editor": "blocksprj",
+    "pubId": "",
+    "pubCurrent": false,
+    "target": "microbit",
+    "targetVersion": "3.0.1",
+    "cloudSync": false,
+    "id": "4c86bb5d-f678-4098-f474-fbbbbb48f340",
+    "recentUse": 1590879552,
+    "modificationTime": 1590879552,
+    "path": "pxt-neural-network-json",
+    "blobCurrent": false,
+    "saveId": null,
+    "githubCurrent": false
+}

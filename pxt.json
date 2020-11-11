@@ -1,0 +1,41 @@
+{
+    "name": "pxt-neural-network-json",
+    "description": "This extensions add blocks for neurol network computations.",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "nntest.ts",
+        "nntest.cpp",
+        "platform/Utils.h",
+        "platform/Utils.cpp",
+        "common/logUtils.h",
+        "common/logUtils.cpp",
+        "json/DebugJsonParser.cpp",
+        "json/DebugJsonParser.h",
+        "json/JsonParserIF.h",
+        "json/NNJsonParser.cpp",
+        "json/NNJsonParser.h",
+        "json/Parser.cpp",
+        "json/Parser.h",
+        "json/Token.cpp",
+        "json/Token.h",
+        "json/VectJsonParser.cpp",
+        "json/VectJsonParser.h",
+        "neuralnets/Mat.cpp",
+        "neuralnets/Mat.h",
+        "neuralnets/NN.cpp",
+        "neuralnets/NN.h",
+        "neuralnets/NNLayer.cpp",
+        "neuralnets/NNLayer.h",
+        "neuralnets/NNUtils.cpp",
+        "neuralnets/NNUtils.h",
+        "neuralnets/Vect.cpp",
+        "neuralnets/Vect.h",
+        "shims.d.ts",
+        "enums.d.ts",
+        "README.md"
+    ],
+    "preferredEditor": "blocksprj"
+}

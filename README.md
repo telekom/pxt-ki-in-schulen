@@ -1,71 +1,101 @@
-<h1 align="center">
-    telekom pxt-ki-in-schulen
-</h1>
+# pxt-neural-network-json
+test repository for the neural networks calliope extension
 
-<p align="center">
-    <a href="https://github.com/telekom/pxt-ki-in-schulen/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/telekom/pxt-ki-in-schulen?style=flat"></a>
-    <a href="https://github.com/telekom/pxt-ki-in-schulen/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/telekom/pxt-ki-in-schulen?style=flat"></a>
-    <a href="https://github.com/telekom/pxt-ki-in-schulen/blob/master/LICENSE" title="License"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat"></a>
-</p>
+## infos
 
-<p align="center">
-  <a href="#development">Development</a> •
-  <a href="#documentation">Documentation</a> •
-  <a href="#support-and-feedback">Support</a> •
-  <a href="#how-to-contribute">Contribute</a> •
-  <a href="#contributors">Contributors</a> •
-  <a href="#licensing">Licensing</a>
-</p>
+* https://makecode.com/extensions/getting-started/vscode
+* https://makecode.com/extensions/getting-started/simple-extension
+* https://learn.sparkfun.com/tutorials/how-to-create-a-makecode-package-for-microbit/all
+* https://github.com/sparkfun/pxt-gator-light
+* https://forum.calliope.cc/t/makecode-erweiterungen-fuer-groove-sensoren-in-c/1363
 
-The goal of this project is ... _TBD_
+## build
 
-## About this component
+### prerequisite
 
-_TBD_
+see: https://makecode.com/cli
 
-## Development
+install NodeJS: https://nodejs.org/
+12.17.0 LTS
 
-_TBD_
+npm install -g pxt
 
-### Build
+install CMake: https://cmake.org/download/
+https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3-win64-x64.msi
 
-_TBD_
+install ninja: https://github.com/martine/ninja/releases/download/v1.5.3/ninja-win.zip
 
-## Code of Conduct
+install cpp  arm-none-eabi-gcc cross compiler: https://launchpad.net/gcc-arm-embedded
+https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-a/downloads
 
-This project has adopted the [Contributor Covenant](https://www.contributor-covenant.org/) in version 2.0 as our code of conduct. Please see the details in our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md). All contributors must abide by the code of conduct.
+install srecord
+https://sourceforge.net/projects/srecord/files/srecord-win32/1.64/
 
-## Working Language
+### install microbit
 
-We decided to apply _English_ as the primary project language.  
+install pxt-microbit, runs server, create project, modify project and build from cli:
 
-Consequently, all content will be made available primarily in English. We also ask all interested people to use English as language to create issues, in their code (comments, documentation etc.) and when you send requests to us. The application itself and all end-user facing content will be made available in other languages as needed.
+```
+(yotta) E:\CALLIOPE>mkdir pxt-microbit
+(yotta) E:\CALLIOPE>cd pxt-microbit
+(yotta) E:\CALLIOPE\pxt-microbit>pxt target microbit
+        ... downloads ...
 
-## Documentation
+(yotta) E:\CALLIOPE\pxt-microbit>pxt serve
+        ... create project "nntest2", edit files, exit browser, <Ctrl>-'C' ...
 
-The full documentation for the telekom can be found in _TBD_
-## Support and Feedback
-The following channels are available for discussions, feedback, and support requests:
+(yotta) E:\CALLIOPE\pxt-microbit>cd projects\nntest2
+(yotta) E:\CALLIOPE\pxt-microbit\projects\nntest2>pxt install
+Using target microbit with build engine yotta
+  target: v3.0.1 E:\CALLIOPE\pxt-microbit\node_modules\pxt-microbit
+  pxt-core: v5.37.83 E:\CALLIOPE\pxt-microbit\node_modules\pxt-core
+installing dependencies...
 
-| Type                     | Channel                                                |
-| ------------------------ | ------------------------------------------------------ |
-| **Issues**   | <a href="https://github.com/telekom/pxt-ki-in-schulen/issues/new/choose" title="General Discussion"><img src="https://img.shields.io/github/issues/telekom/pxt-ki-in-schulen?style=flat-square"></a> </a>   |
-| **Other Requests**    | <a href="mailto:opensource@telekom.de" title="Email Open Source Team"><img src="https://img.shields.io/badge/email-Open%20Source%20Team-green?logo=mail.ru&style=flat-square&logoColor=white"></a>   |
+(yotta) E:\CALLIOPE\pxt-microbit\projects\nntest2>pxt build
+Using target microbit with build engine yotta
+  target: v3.0.1 E:\CALLIOPE\pxt-microbit\node_modules\pxt-microbit
+  pxt-core: v5.37.83 E:\CALLIOPE\pxt-microbit\node_modules\pxt-core
+building E:\CALLIOPE\pxt-microbit\projects\nntest2
 
-## How to Contribute
+(yotta) E:\CALLIOPE\pxt-microbit\projects\nntest2>copy built\binary.hex G:\
+        1 Datei(en) kopiert.
+        ... calliope mini runs newest code ...
+```
 
-Contribution and feedback is encouraged and always welcome. For more information about how to contribute, the project structure, as well as additional contribution information, see our [Contribution Guidelines](./CONTRIBUTING.md). By participating in this project, you agree to abide by its [Code of Conduct](./CODE_OF_CONDUCT.md) at all times.
+Remark: when using pxt-calliope as target the build fails with the message file "device.h" not found.
 
-## Contributors
+### build from fresh checkout
 
-Our commitment to open source means that we are enabling -in fact encouraging- all interested parties to contribute and become part of its developer community.
 
-## Licensing
 
-Copyright (c) 2020 Deutsche Telekom AG.
+```
+(yotta) E:\CALLIOPE\pxt-microbit\projects>git clone https://github.com/ferenc-hechler/pxt-nntest.git
 
-Licensed under the **MIT License** (the "License"); you may not use this file except in compliance with the License.
+(yotta) E:\CALLIOPE\pxt-microbit\projects>cd pxt-nntest
 
-You may obtain a copy of the License by reviewing the file [LICENSE](./LICENSE) in the repository.
+(yotta) E:\CALLIOPE\pxt-microbit\projects\pxt-nntest>pxt install
+Using target microbit with build engine yotta
+  target: v3.0.1 E:\CALLIOPE\pxt-microbit\node_modules\pxt-microbit
+  pxt-core: v5.37.83 E:\CALLIOPE\pxt-microbit\node_modules\pxt-core
+installing dependencies...
 
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the [LICENSE](./LICENSE) for the specific language governing permissions and limitations under the License.
+(yotta) E:\CALLIOPE\pxt-microbit\projects\pxt-nntest>pxt build
+Using target microbit with build engine yotta
+  target: v3.0.1 E:\CALLIOPE\pxt-microbit\node_modules\pxt-microbit
+  pxt-core: v5.37.83 E:\CALLIOPE\pxt-microbit\node_modules\pxt-core
+building E:\CALLIOPE\pxt-microbit\projects\pxt-nntest
+polling C++ build https://makecode.com/compile/f60db3bb2519ae8c63ba832606daf5a8ced182d2a852e30de65bf9046491946b.json
+polling C++ build https://makecode.com/compile/f60db3bb2519ae8c63ba832606daf5a8ced182d2a852e30de65bf9046491946b.json
+build log https://makecode.com/compile/f60db3bb2519ae8c63ba832606daf5a8ced182d2a852e30de65bf9046491946b.log
+fetching https://pxt.azureedge.net/compile/f60db3bb2519ae8c63ba832606daf5a8ced182d2a852e30de65bf9046491946b.hex
+
+(yotta) E:\CALLIOPE\pxt-microbit\projects\pxt-nntest>copy built\binary.hex g:\
+        1 Datei(en) kopiert.
+```
+
+
+
+## Supported targets
+
+* for PXT/microbit
+* for PXT/calliope
