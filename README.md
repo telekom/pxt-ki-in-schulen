@@ -1,5 +1,6 @@
 # pxt-neural-network-json
-test repository for the neural networks calliope extension
+
+repository for the neural networks calliope extension
 
 ## infos
 
@@ -99,3 +100,20 @@ fetching https://pxt.azureedge.net/compile/f60db3bb2519ae8c63ba832606daf5a8ced18
 
 * for PXT/microbit
 * for PXT/calliope
+
+
+## Sources
+
+the initial sources for creating a MakeCode Extension have been taken form the repository 
+https://github.com/sparkfun/pxt-gator-light
+
+## License
+
+MIT
+
+```package
+kiinschulen=github:telekom/pxt-ki-in-schulen
+gatorlight=github:sparkfun/pxt-gator-light
+```
+
+
