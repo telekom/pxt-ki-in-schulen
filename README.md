@@ -1,8 +1,16 @@
-# pxt-neural-network-json
+<h1 align="center">
+    telekom pxt-ki-in-schulen
+</h1>
 
-repository for the neural networks calliope extension
+<p align="center">
+    <a href="https://github.com/telekom/pxt-ki-in-schulen/commits/" title="Last Commit"><img src="https://img.shields.io/github/last-commit/telekom/pxt-ki-in-schulen?style=flat"></a>
+    <a href="https://github.com/telekom/pxt-ki-in-schulen/issues" title="Open Issues"><img src="https://img.shields.io/github/issues/telekom/pxt-ki-in-schulen?style=flat"></a>
+    <a href="https://github.com/telekom/pxt-ki-in-schulen/blob/master/LICENSE" title="License"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat"></a>
+</p>
 
-## infos
+This project implements KI (neural networks) extension blocks for the Calliope Mini MakeCode Editor.
+
+## Infos for Developers
 
 * https://makecode.com/extensions/getting-started/vscode
 * https://makecode.com/extensions/getting-started/simple-extension
@@ -107,13 +115,18 @@ fetching https://pxt.azureedge.net/compile/f60db3bb2519ae8c63ba832606daf5a8ced18
 the initial sources for creating a MakeCode Extension have been taken form the repository 
 https://github.com/sparkfun/pxt-gator-light
 
-## License
 
-MIT
+## Licensing
 
-```package
-kiinschulen=github:telekom/pxt-ki-in-schulen
-gatorlight=github:sparkfun/pxt-gator-light
-```
+Copyright (c) 2020 Deutsche Telekom AG.
+Copyright (c) 2017 SparkFun Electronics (see above **Sources**).
+
+
+Licensed under the **MIT License** (the "License"); you may not use this file except in compliance with the License.
+
+You may obtain a copy of the License by reviewing the file [LICENSE](./LICENSE) in the repository.
+
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the [LICENSE](./LICENSE) for the specific language governing permissions and limitations under the License.
+
 
 
