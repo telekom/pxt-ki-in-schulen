@@ -9,6 +9,7 @@
 </p>
 
 This project implements KI (neural networks) extension blocks for the Calliope Mini MakeCode Editor.
+It is used in the project https://github.com/telekom/ki-in-schulen .
 
 ## Infos for Developers
 
