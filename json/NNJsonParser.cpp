@@ -22,9 +22,7 @@
 NNJsonParser::NNJsonParser() {
 	this->current_list = NONE;
 	this->nn = 0;
-	this->input_size = 0;
-	this->hidden_layers_size = new Vect(0);
-	this->output_size = 0;
+	this->layers = new Vect(0);
 	this->activation_function = NNL_ACT_FUN_UNDEF;
 }
 
@@ -48,8 +46,8 @@ void NNJsonParser::beginList(const char* name) {
 	if (name == 0) {
 		return;
 	}
-	if (strcmp(name, "hidden_layer_sizes") == 0) {
-		current_list = ELEM_HIDDEN_LAYERS_SIZE;
+	if (strcmp(name, "layers") == 0) {
+		current_list = ELEM_LAYERS;
 	}
 	else if (strcmp(name, "coefs") == 0) {
 		initNN();
@@ -78,9 +76,9 @@ void NNJsonParser::endList() {
 	}
 	element_level--;
 	if (element_level < 0) {
-		if (current_list == ELEM_HIDDEN_LAYERS_SIZE) {
-			log("HIDDEN_LAYERS:");
-			hidden_layers_size->print();
+		if (current_list == ELEM_LAYERS) {
+			log("LAYERS:");
+			layers->print();
 		}
 		current_list = NONE;
 	}
@@ -90,21 +88,7 @@ void NNJsonParser::endList() {
 }
 
 void NNJsonParser::attribute(const char* name, const char* value) {
-	if (strcmp(name, "input_layer_size") == 0) {
-		input_size = atoi(value);
-		log(name);
-		log("=");
-		logInt(input_size);
-		log("\r\n");
-	}
-	else if (strcmp(name, "output_layer_size") == 0) {
-		output_size = atoi(value);
-		log(name);
-		log("=");
-		logInt(output_size);
-		log("\r\n");
-	}
-	else if (strcmp(name, "activation") == 0) {
+	if (strcmp(name, "act") == 0) {
 		if (strcmp(value, "relu") == 0) {
 			activation_function = NNL_ACT_FUN_RELU;
 		}
@@ -133,9 +117,9 @@ void NNJsonParser::element(const char* value) {
 	switch (current_list) {
 	case NONE:
 		break;
-	case ELEM_HIDDEN_LAYERS_SIZE: {
+	case ELEM_LAYERS: {
 		int int_value = atoi(value);
-		hidden_layers_size->insert(int_value);
+		layers->insert(int_value);
 		break;
 	}
 	case ELEM_COEFS: {
@@ -175,24 +159,18 @@ void NNJsonParser::initNN() {
 	if (nn != 0) {
 		return;
 	}
-	if (input_size == 0) {
-		throwError("input_layer_size not found in header!");
-	}
-	if (output_size == 0) {
-		throwError("output_layer_size not found in header!");
-	}
-	if (hidden_layers_size->getLength() == 0) {
-		throwError("hidden_layer_sizes not found in header!");
+	if (layers->getLength() < 3) {
+		throwError("invalid layers element (at least 3 layers are required: [input, hidden, output]!");
 	}
 	if (activation_function == NNL_ACT_FUN_UNDEF) {
 		throwError("activation function not found in header!");
 	}
 
-	nn = new NN(input_size);
-	for (int i=0; i<hidden_layers_size->getLength(); i++) {
-		nn->addLayer(hidden_layers_size->get(i));
+	nn = new NN(layers->get(0));
+	for (int i=1; i<layers->getLength()-1; i++) {
+		nn->addLayer(layers->get(i));
 	}
-	nn->addLayer(output_size);
+	nn->addLayer(layers->get(layers->getLength()-1));
 
 	for (int i=0; i<nn->getNumLayers()-1; i++) {
 		nn->getLayer(i)->setActivationFunction(activation_function);
@@ -204,7 +182,7 @@ void NNJsonParser::initNN() {
 
 
 NNJsonParser::~NNJsonParser() {
-	delete hidden_layers_size;
-	hidden_layers_size = 0;
+	delete layers;
+	layers = 0;
 }
 

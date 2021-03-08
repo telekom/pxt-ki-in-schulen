@@ -19,7 +19,7 @@ private:
 
 	enum ListTypes {
 		NONE,
-		ELEM_HIDDEN_LAYERS_SIZE,
+		ELEM_LAYERS,
 		ELEM_COEFS,
 		ELEM_INTERCEPTS
 	};
@@ -28,9 +28,7 @@ private:
 	int element_pos[3];
 
 	NN *nn;
-	int input_size;
-	Vect *hidden_layers_size;
-	int output_size;
+	Vect *layers;
 	int activation_function;
 
 
